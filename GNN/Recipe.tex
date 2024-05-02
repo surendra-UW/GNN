@@ -1,0 +1,9 @@
+\subsection{General Recipe}
+So, the basic recipe for a GNN is
+\begin{enumerate}
+  %\item Identify the graph structure that you want to apply GNN on i.e, formulate the nodes and edges in the data.
+  \item Construct the initial graph structure to model the data as nodes and the relationship between data as edges
+  \item Based on the task i.e, node level, edge level as described earlier, create the GNN model's classification layer
+  \item Define the loss function according to the context. Eg: log likelihood, root mean square error etc.
+  \item Apply gradient descent and optimize the weight parameters by minimizing the loss function
+\end{enumerate}

@@ -1,0 +1,4 @@
+\section{Over-Smoothing Problem}
+Unlike CNN where the performance increase along with the number of layers, GNN with many layers perform poorly. In a highly connected graph network every node is influenced by many neighbours. So, with huge number of layers all the node embeddings will be saturated and become indistinguishable to each other. This is called over smoothing effect. The number layers to reach this saturation in a highly connected graph could be as low as O($\log(|v|)$)\\
+
+So, the solution for this problem is instead of increasing the number of GNN layers (k) we can add complexity in the aggregation function with the use of Multi Layer Perceptron (MLP) as in Graph Sage model. This would help you aggregate the spacial information with fewer GNN layers. 

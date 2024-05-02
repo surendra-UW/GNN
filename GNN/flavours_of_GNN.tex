@@ -1,0 +1,25 @@
+\section{Other Flavours of GNN}
+
+
+\subsection{GraphSage}
+GraphSage proposes the use of different aggregating functions like weigthed avegage, Multi Layer Perceptron on all the neighbouring nodes or even a LSTM.
+
+The aggregated messsages are then concatenated with the node embeddings.
+\begin{displaymath}
+    m_N^{(u)} = \text{MLP}{\theta} \left( \sum{v \in N(u)} \text{MLP}_{\phi}(h_v)\right)
+\end{displaymath}
+Other interesting idea here is $\ell_2$ normalization of hidden state in all the layer which seems to improve performance.
+
+\begin{displaymath}
+    h_v^{(\ell)} = \frac{h_v^{(\ell)}}{||h_v^{(\ell)}||}_2 \quad where, \quad ||u||_2 = \sqrt{\sum_i u_i^2}
+\end{displaymath}
+
+\subsection{Graph Attention Networks}
+The aggregate function in the GAT is attention operation. All the neighbouring node embeddings are multiplied by weights i.e, attention coefficients. Comparing this to other flavours where this weight is just the inverse of the degree of the node, attention which is learnt from the network is great replacement for this weight.
+\begin{displaymath}
+m_v^{(u)} = \sum_{v \in N(u)} \alpha_{u,v} h_v,  \quad \alpha_{u,v} = \frac{\exp(a^T [Wh_u \oplus Wh_v])}{\sum_{v' \in N(u)} {\exp(a^T [W{h_u} \oplus Wh_{v'}])}}
+\end{displaymath}
+
+Where a is linear transformation matrix and the operation $\oplus$ can either be concatenation or a dot product or some distance metric like cosine similarity.
+
+%\section{Future Work}
